@@ -4,7 +4,7 @@ import {
   createBrowserRouter,
   RouterProvider,
   Route,
-  Switch,
+  Routes,
 } from "react-router-dom";
 import HomePage from './pages/HomePage';
 import CartPage from './pages/CartPage';
@@ -15,7 +15,7 @@ import ProductPage from './pages/ProductPage';
 const App = () => {
   return (
     <BrowserRouter>
-      <Switch>
+      <Routes>
         <Route path="/mall" exact>
           <HomePage />
         </Route>
@@ -31,7 +31,7 @@ const App = () => {
         <Route path="/:productName">
           <ProductPage />
         </Route>
-      </Switch>
+      </Routes>
     </BrowserRouter>
   );
 }
