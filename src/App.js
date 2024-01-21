@@ -1,11 +1,5 @@
-import React from 'react'
-import {
-  BrowserRouter,
-  createBrowserRouter,
-  RouterProvider,
-  Route,
-  Routes,
-} from "react-router-dom";
+import React from 'react';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
@@ -16,21 +10,12 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/mall" exact>
-          <HomePage />
-        </Route>
-        <Route path="/cart" exact>
-          <CartPage />
-        </Route>
-        <Route path="/checkout" exact>
-          <CheckoutPage />
-        </Route>
-        <Route path="/mall/:categoryName">
-          <ProductCollectionPage />
-        </Route>
-        <Route path="/:productName">
-          <ProductPage />
-        </Route>
+        <Route path="/" element={<Navigate to="/mall" replace />} />
+        <Route path="/mall" element={<HomePage />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/mall/:categoryName" element={<ProductCollectionPage />} />
+        <Route path="/:productName" element={<ProductPage />} />
       </Routes>
     </BrowserRouter>
   );
