@@ -2,17 +2,25 @@ import React from 'react';
 import styled from 'styled-components';
 import Container from '../common/Container';
 import Logo from '../image/Shopee.png';
+import { ShoppingCartOutlined } from '@ant-design/icons' 
+
+import { Input } from 'antd';
+import { Link } from 'react-router-dom';
+const { Search } = Input;
+
+const onSearch = (value, _e, info) => console.log(info?.source, value);
 
 const StyledHeader = styled.header`
     background-color: #E95204;
     width: 100vw;
-    height: 200px;
+    padding: 16px 0;
 `;
 
 const StyledHeaderSection = styled.div`
     display: flex;
     justify-content: space-between;
-    padding-top: 8px;
+    align-items: center;
+
 `
 
 const Navigator = styled.div`
@@ -25,11 +33,16 @@ const Navigator = styled.div`
 `;
 const ToolBar = styled.div`
     a{
-        margin: 0px 6px;
+        margin: 0px 8px;
         color: white;
     }
 `;
 
+
+const FlexSearch = styled.div`
+    display: flex;
+    align-items: center;
+`
 
 const Header = () => {
     return (
@@ -49,15 +62,18 @@ const Header = () => {
                     </ToolBar>
                 </StyledHeaderSection>
                 <StyledHeaderSection>
-                    <a href='/'>
+                    <Link to='/'>
                          <img src={Logo} alt="logo" height={64} />
-                    </a>
+                    </Link>
                
              
-                    <div>
-                        <span>Search</span>
-                        <span>Cart</span>
-                    </div> 
+                    <FlexSearch>
+                        <Input.Search style={{marginRight: 8 }} placeholder="input search text" onSearch={onSearch} enterButton />
+                       
+                        <Link to='/cart'>
+                             <ShoppingCartOutlined style={{fontSize: 32,color: 'white'}} />
+                        </Link>
+                    </FlexSearch> 
                 </StyledHeaderSection>
             </Container>
         </StyledHeader>
