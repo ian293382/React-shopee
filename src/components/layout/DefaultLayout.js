@@ -4,7 +4,7 @@ import Header from './Header';
 import Footer from './Footer';
 import Container from '../common/Container';
 
-const PageHeader = styled.div`
+const PageHeader = styled(Header)`
     ${(props) => 
     props.fixed &&
     css`
@@ -15,9 +15,7 @@ const PageHeader = styled.div`
 const DefaultLayout = ({ fixHeader, children }) => {
     return (
         <div>
-            <PageHeader fixed={fixHeader}>
-                <Header />
-            </PageHeader>
+            <PageHeader fixed={fixHeader} />
             <Container>
                 {children}
             </Container>
