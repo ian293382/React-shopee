@@ -61,9 +61,9 @@ const Header = () => {
                         <a href="#">通知</a>
                         <a href='#'>幫助中心</a>
                         {isAuthenticated ? (
-                            <a href='#'>Kevin</a>
+                            <Link to='/login'>Kevin</Link>
                             ) : (
-                            <a href='#'>帳號</a>
+                            <Link to='/login'>帳號</Link>
                         )}
                       
                     </ToolBar>
