@@ -115,11 +115,13 @@ const MallTextBox = styled.div`
 `
 const MallTitle = styled.div`
     font-size:20px;
+    font-family:Arial;
     line-height: 1.7;
     font-weight: 700;
 `
 
 const MallText = styled.div`
+    font-family:Arial;
     font-size: 16px;
     font-weight: 400;
     line-height: 1.7;
