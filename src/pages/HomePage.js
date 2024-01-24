@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import DefaultLayout from '../components/layout/DefaultLayout';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
@@ -8,6 +8,8 @@ import Banner2 from '../components/image/banner/banner2.png';
 import Banner3 from '../components/image/banner/banner3.png';
 import Banner4 from '../components/image/banner/banner4.JPG';
 import ProductCard from '../components/product/ProductCards';
+import AuthContext from '../components/auth/AuthContext';
+
 
 
 
@@ -127,10 +129,14 @@ const MallText = styled.div`
     line-height: 1.7;
     margin-bottom: 12px;
 `
+
+
 const HomePage = () => {
+    const { isAuthenticated } = useContext(AuthContext); // 注意這裡的修正
+
     return (
         <DefaultLayout fixHeader>
-           
+           {isAuthenticated && <h1>歡迎回來!!</h1>}
            <BannerBox>
                 <BannerCaruselContainer>
                     <Carousel autoplay>

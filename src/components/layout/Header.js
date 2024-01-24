@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import Container from '../common/Container';
 import Logo from '../image/Shopee.png';
@@ -6,6 +6,7 @@ import { ShoppingCartOutlined } from '@ant-design/icons'
 
 import { Input } from 'antd';
 import { Link } from 'react-router-dom';
+import AuthContext from '../auth/AuthContext';
 const { Search } = Input;
 
 const onSearch = (value, _e, info) => console.log(info?.source, value);
@@ -45,6 +46,7 @@ const FlexSearch = styled.div`
 `
 
 const Header = () => {
+    const { isAuthenticated } = useContext(AuthContext)
     return (
         <StyledHeader>
             <Container>
@@ -58,7 +60,12 @@ const Header = () => {
                     <ToolBar>
                         <a href="#">通知</a>
                         <a href='#'>幫助中心</a>
-                        <a href='#'>帳號</a>
+                        {isAuthenticated ? (
+                            <a href='#'>Kevin</a>
+                            ) : (
+                            <a href='#'>帳號</a>
+                        )}
+                      
                     </ToolBar>
                 </StyledHeaderSection>
                 <StyledHeaderSection>
