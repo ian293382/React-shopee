@@ -5,6 +5,7 @@ import { Button } from "antd/es/radio";
 import React, { useContext, useEffect, useState } from "react"
 import AuthContext from "./AuthContext";
 import { useNavigate } from "react-router-dom";
+import { message } from "antd";
 
 
 const LoginForm = () => {
@@ -13,12 +14,16 @@ const LoginForm = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     
-    const handleLogin = () => {
+    const handleLogin = ({ token,error }) => {
             // 不要在表單內做api 去外部引入 維護困難
     // console.log(handleLogin) // 排錯第一步 後來發性都是undef 就是沒帶到參數 先用state 卡著
     // login is async function 所以可以用 promise所以可以用 .then進行跳轉頁面 但不要做原本的location.assign => 用history
-    login(username, password)
-            .then(() => navigate('/'))
+    login(username, password).then(({ token, error }) => {
+        if (!token) {
+            message.error(error);
+        }
+    })
+          
     };
     useEffect(() => {
         isAuthenticated && navigate('/');

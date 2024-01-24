@@ -46,7 +46,7 @@ const FlexSearch = styled.div`
 `
 
 const Header = () => {
-    const { isAuthenticated } = useContext(AuthContext)
+    const { isAuthenticated, logout } = useContext(AuthContext)
     return (
         <StyledHeader>
             <Container>
@@ -61,7 +61,10 @@ const Header = () => {
                         <a href="#">通知</a>
                         <a href='#'>幫助中心</a>
                         {isAuthenticated ? (
-                            <Link to='/login'>Kevin</Link>
+                            <div>
+                                <Link to='/login'>Kevin</Link>
+                                <span onClick={() => logout()}>登出</span>
+                            </div> 
                             ) : (
                             <Link to='/login'>帳號</Link>
                         )}
