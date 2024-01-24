@@ -5,10 +5,12 @@ import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
 import ProductCollectionPage from './pages/ProductCollectionPage';
 import ProductPage from './pages/ProductPage';
+import ScrollToTop from './components/common/ScrollToTop';
 
 const App = () => {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Navigate to="/mall" replace />} />
         <Route path="/mall" element={<HomePage />} />
