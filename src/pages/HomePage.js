@@ -9,6 +9,7 @@ import Banner3 from '../components/image/banner/banner3.png';
 import Banner4 from '../components/image/banner/banner4.JPG';
 import ProductCard from '../components/product/ProductCards';
 import AuthContext from '../components/auth/AuthContext';
+import PopupModal from '../components/common/PopupModal';
 
 
 
@@ -136,6 +137,7 @@ const HomePage = () => {
 
     return (
         <DefaultLayout fixHeader>
+            <PopupModal />
            {isAuthenticated && <h1>歡迎回來!!</h1>}
            <BannerBox>
                 <BannerCaruselContainer>
